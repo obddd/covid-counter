@@ -1,7 +1,8 @@
 import React from 'react';
 import './Card.style.scss';
 
-const Card = () => {
+const Card = (props) => {
+    console.log(props)
     return (
         <div>
             <h1>Card</h1>
