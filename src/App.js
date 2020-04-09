@@ -21,9 +21,9 @@ class App extends Component {
     const { data } = this.state;
     return (
       <div className='main-container'>
-      <Cards data={data}/>
-        <Chart />
+        <Cards data={data}/>
         <CountryPicker />
+        <Chart />
       </div>
     );
   }
