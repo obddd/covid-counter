@@ -4,7 +4,7 @@ import './App.css';
 import Cards from './component/card/Card.component'
 import Chart from './component/chart/Chart.component';
 import CountryPicker from './component/country-picker/Country-Picker.component';
-import fetchData from './api'
+import {fetchData} from './api'
 
 class App extends Component {
   state = {
@@ -20,7 +20,7 @@ class App extends Component {
   render() {
     const { data } = this.state;
     return (
-      <div className='container'>
+      <div className='main-container'>
       <Cards data={data}/>
         <Chart />
         <CountryPicker />

@@ -10,11 +10,12 @@ const Cards = ({data : { confirmed, recovered, deaths, lastUpdate }}) => {
         return 'Loading..'
     }
     return (
-        <div className={'container'}>
+        <div className={'card-container'}>
             <Grid container spacing={3} justify='center'>
+
                 <Grid item component={Card} xs={12} md={3} className={cx('card', 'infected')} >
                     <CardContent>
-                        <Typography color='textSecondary' gutterbottom >Infected</Typography>
+                        <Typography color='textSecondary' gutterBottom >Infected</Typography>
                         <Typography variant='h5'>
                             <CountUp start={0} end={confirmed.value} duration={2.8} separator=','/>
                         </Typography>
@@ -25,7 +26,7 @@ const Cards = ({data : { confirmed, recovered, deaths, lastUpdate }}) => {
 
                 <Grid item component={Card} xs={12} md={3} className={cx('card', 'recovered')} >
                     <CardContent>
-                        <Typography color='textSecondary' gutterbottom >Recovered</Typography>
+                        <Typography color='textSecondary' gutterBottom >Recovered</Typography>
                         <Typography variant='h5'>
                             <CountUp start={0} end={recovered.value} duration={2.8} separator=','/>
                         </Typography>
@@ -36,7 +37,7 @@ const Cards = ({data : { confirmed, recovered, deaths, lastUpdate }}) => {
 
                 <Grid item component={Card} xs={12} md={3} className={cx('card', 'deaths')} >
                     <CardContent>
-                        <Typography color='textSecondary' gutterbottom >Deaths</Typography>
+                        <Typography color='textSecondary' gutterBottom>Deaths</Typography>
                         <Typography variant='h5'>
                             <CountUp start={0} end={deaths.value} duration={2.8} separator=','/>
                         </Typography>
