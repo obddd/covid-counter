@@ -6,3 +6,18 @@ body {
   align-items: center;
   flex-direction: column;
 }
+
+.image{
+  margin: 50px 0;
+  width: 370px;
+}
+
+@media (max-width: 770px){
+  .main-container{
+    margin: 0 10%; 
+  }
+
+  .image {
+    width: 100%;
+  }
+}

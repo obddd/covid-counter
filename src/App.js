@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import CoronaImg from './images/image.png';
 
 import Cards from './component/card/Card.component'
 import Chart from './component/chart/Chart.component';
@@ -30,6 +31,7 @@ class App extends Component {
     const { data, country } = this.state;
     return (
       <div className='main-container'>
+        <img className='image' src={CoronaImg} alt='Covid-19'/>
         <Cards data={data}/>
         <CountryPicker handleCountryChange={this.handleCountryChange} />
         <Chart data={data} country={country} />
