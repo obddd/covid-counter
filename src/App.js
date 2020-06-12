@@ -34,7 +34,7 @@ class App extends Component {
         <img className='image' src={CoronaImg} alt='Covid-19'/>
         <Cards data={data}/>
         <CountryPicker handleCountryChange={this.handleCountryChange} />
-        <Chart data={data} country={country} />
+        <Chart data={data} country={country} /> 
       </div>
     );
   }
