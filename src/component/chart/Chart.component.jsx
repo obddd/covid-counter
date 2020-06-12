@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './Chart.style.scss';
+import './Chart.style.css';
 import { fetchDailyData } from '../../api'
 
 import { Line, Bar } from 'react-chartjs-2';
