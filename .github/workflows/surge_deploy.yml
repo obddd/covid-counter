@@ -37,9 +37,23 @@ jobs:
     - name: Build React App
       run: yarn build
     
-    # Rebuild Node Sass
-    - name: Rebuild Node Sass
-      run: npm rebuild node-sass
+    - name: Make destination directory for compiled CSS
+        run: mkdir -vp /tmp/repo-name/assets/css
+
+      - name: Compile CSS from SCSS files
+        uses: gha-utilities/sass-build@v0.2.5
+        with:
+          source: _scss/main.scss
+          destination: /tmp/repo-name/assets/css/main.css
+
+      - name: Checkout destination Git branch
+        uses: actions/checkout@v2
+        with:
+            ref: pr-pages
+            fetch-depth: 1
+
+      - name: Move compiled CSS to path within pr-pages branch
+        run: mv /tmp/repo-name/assets/css assets/
     
     # Install Surge
     - name: Install Surge
