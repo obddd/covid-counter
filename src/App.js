@@ -9,6 +9,7 @@ import Chart from './component/chart/Chart.component';
 import CountryPicker from './component/country-picker/Country-Picker.component';
 import Header from './component/Header'
 import Flag from './component/flag/Flag.component';
+import Map from './component/map/Map.component';
 import {fetchData} from './api'
 import { fetchConditionToday } from './api'
 
@@ -51,6 +52,7 @@ class App extends Component {
         <ThemeProvider theme={THEME}>
         <Header/>
         <Cards data={data}/>
+        <Map/>
         {country && <Flag todaysData={conditionToday}/> }
         <CountryPicker handleCountryChange={this.handleCountryChange} />
         <Chart data={data} country={country} todaysData={conditionToday} /> 
