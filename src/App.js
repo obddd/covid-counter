@@ -1,16 +1,19 @@
 import React, { Component } from 'react';
 import './App.css';
-import CoronaImg from './images/image.png';
 
 import Cards from './component/card/Card.component'
 import Chart from './component/chart/Chart.component';
 import CountryPicker from './component/country-picker/Country-Picker.component';
+import Header from './component/Header'
+import Flag from './component/flag/Flag.component';
 import {fetchData} from './api'
+import { fetchConditionToday } from './api'
 
 class App extends Component {
   state = {
     data: {},
-    country: ''
+    country: '',
+    conditionToday:{}
   }
   async componentDidMount () {
     const fetchedData = await fetchData();
@@ -21,20 +24,24 @@ class App extends Component {
 
   handleCountryChange = async(country) => {
     const fetchedData = await fetchData(country)
+    const fetchedConditionToday = await fetchConditionToday(country)
     this.setState({
       data: fetchedData,
-      country: country
+      country: country,
+      conditionToday: fetchedConditionToday
     })
+    // console.log(this.state.conditionToday)
   }
 
   render() {
-    const { data, country } = this.state;
+    const { data, country, conditionToday } = this.state;
     return (
       <div className='main-container'>
-        <img className='image' src={CoronaImg} alt='Covid-19'/>
+        <Header/>
         <Cards data={data}/>
         <CountryPicker handleCountryChange={this.handleCountryChange} />
-        <Chart data={data} country={country} /> 
+        {country && <Flag todaysData={conditionToday}/> }
+        <Chart data={data} country={country} todaysData={conditionToday} /> 
       </div>
     );
   }

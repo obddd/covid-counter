@@ -11,7 +11,6 @@ const CountryPicker = ({ handleCountryChange }) => {
         }
         fetchedAPI()
     }, [setFetchedCountry]);
-
     return (
         <FormControl className='picker-conatiner'>
             <NativeSelect onChange={(event) => handleCountryChange(event.target.value)} >
