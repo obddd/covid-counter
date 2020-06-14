@@ -33,7 +33,6 @@ class App extends Component {
       country: country,
       conditionToday: fetchedConditionToday
     })
-    // console.log(this.state.conditionToday)
   }
 
   render() {
