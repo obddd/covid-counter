@@ -1,4 +1,5 @@
 import React from 'react';
+import './Flag.style.css';
 
 const Flag = ({ todaysData }) => {
     return (

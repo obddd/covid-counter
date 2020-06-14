@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
 
+import { createMuiTheme } from '@material-ui/core/styles';
+import { ThemeProvider } from '@material-ui/styles';
+
 import Cards from './component/card/Card.component'
 import Chart from './component/chart/Chart.component';
 import CountryPicker from './component/country-picker/Country-Picker.component';
@@ -35,13 +38,24 @@ class App extends Component {
 
   render() {
     const { data, country, conditionToday } = this.state;
+    const THEME = createMuiTheme({
+      typography: {
+       "fontFamily": `"Lato", "Helvetica", "Arial", sans-serif`,
+       "fontSize": 15,
+       "fontWeightLight": 300,
+       "fontWeightRegular": 400,
+       "fontWeightMedium": 500
+      }
+   });
     return (
       <div className='main-container'>
+        <ThemeProvider theme={THEME}>
         <Header/>
         <Cards data={data}/>
-        <CountryPicker handleCountryChange={this.handleCountryChange} />
         {country && <Flag todaysData={conditionToday}/> }
+        <CountryPicker handleCountryChange={this.handleCountryChange} />
         <Chart data={data} country={country} todaysData={conditionToday} /> 
+        </ThemeProvider>
       </div>
     );
   }
