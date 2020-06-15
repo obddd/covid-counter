@@ -10,7 +10,7 @@ const Cards = ({data : { confirmed, recovered, deaths, lastUpdate }}) => {
         return 'Loading..'
     }
     return (
-        <div className={'card-container'}>
+        <div className={'card-container'} style={{zIndex: 1, position: 'absolute'}}>
             <Grid container spacing={3} justify='center'>
                 <Grid item component={Card} xs={12} md={3} className={cx('card', 'infected')}>
                     <CardContent>

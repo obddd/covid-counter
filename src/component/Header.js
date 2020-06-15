@@ -2,7 +2,7 @@ import React from 'react';
 
 const Header = () => {
     return (
-        <h1>
+        <h1 style={{zIndex: 1, position: 'absolute'}}>
             COVID COUNTER
         </h1>
     );
